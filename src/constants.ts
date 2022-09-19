@@ -10,5 +10,3 @@ export const VCALENDAR = 'VCALENDAR'
 export const VTIMEZONE = 'VTIMEZONE'
 export const VEVENT = 'VEVENT'
 export const VALARM = 'VALARM'
-
-export type ComponentType = 'VCALENDAR' | 'VTIMEZONE' | 'VEVENT' | 'VALARM'
