@@ -5,11 +5,10 @@ import {
     NEW_LINE,
 
     BEGIN,
-    END,
-
-    ComponentType
+    END
 } from './constants'
 import {
+    CalendarComponentTypes,
     KeyValue,
     TreeType
 } from './types'
@@ -105,7 +104,7 @@ export function parseString(rawLines: string | string[]): TreeType {
  */
 const process = (lines: string[], intend: number = 0): TreeType => {
     const output: TreeType = {}
-    let componentName: ComponentType
+    let componentName: CalendarComponentTypes
 
     for (let i = 0; i < lines.length; i++) {
         const line = lines[i]
@@ -115,7 +114,11 @@ const process = (lines: string[], intend: number = 0): TreeType => {
         const value = line.substring(index + 1)
 
         if (key === BEGIN) {
-            componentName = value as any
+            componentName = value
+
+            if (/X-[\w-]+/.test(componentName)) componentName = componentName.slice(2);
+            componentName = componentName.toLowerCase();
+
             const lastLine = [END, componentName].join(COLON)
             const lastIndex = lines.indexOf(lastLine, i)
 
