@@ -27,7 +27,7 @@ describe("lines2tree - transform file to a json tree", () => {
             const json = fs.readFileSync(`./samples/json/${filename}.json`, 'utf-8')
             const lines = file.split(NEW_LINE)
             const obj = lines2tree(lines)
-    
+
             const generatesJSON = JSON.stringify(obj, null, 2)
             expect(generatesJSON).toEqual(json)
         })

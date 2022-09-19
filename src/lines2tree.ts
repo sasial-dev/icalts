@@ -9,44 +9,42 @@ import {
 
     ComponentType
 } from './constants'
-import { 
-    KeyValue, 
-    TreeType 
+import {
+    KeyValue,
+    TreeType
 } from './types'
 
 /**
  * Parses content lines according to RFC5545 {@link https://tools.ietf.org/html/rfc5545#section-3.1}
- * 
+ *
  * @remarks not exposed for external use
- * 
+ *
  * @example input:
- * 
+ *
  * ```
  * DESCRIPTION:This is a lo
  *    ng description
  *     that exists on a long line.
  * ```
- * 
+ *
  * @example output:
- * 
+ *
  * ```
  * DESCRIPTION:This is a long description that exists on a long line.
  * ```
- * 
+ *
  * @param lines array of lines
- * 
+ *
  * @returns arrays of lines with content lines merged into a single string for each occurance
- * 
+ *
  */
-const preprocessing = (lines:string[]):string[] => {
-    let output:string[] = []
+const preprocessing = (lines: string[]): string[] => {
+    const output: string[] = []
 
-    for(let i=0;i<lines.length;i++){
-        const line = lines[i]
-    
-        if(line.startsWith(SPACE)){
-            output[output.length-1] += line.trim()
-        }else if(line){
+    for (const line of lines) {
+        if (line.startsWith(SPACE)) {
+            output[output.length - 1] += line.trim()
+        } else if (line) {
             output.push(line)
         }
     }
@@ -56,11 +54,11 @@ const preprocessing = (lines:string[]):string[] => {
 
 /**
  * Returns JSON structure of processed ICS tree
- * 
+ *
  * @example output:
- * 
+ *
  * ```json
-  *  {
+ *  {
  *    "VCALENDAR": [
  *      {
  *        "PRODID": "-//Google Inc//Google Calendar 70.9054//EN",
@@ -126,60 +124,60 @@ const preprocessing = (lines:string[]):string[] => {
  *    ]
  *  }
  * ```
- * 
+ *
  * @param rawLines input array of string from the ICS file
  */
-export const lines2tree = (rawLines:string[]):TreeType => {
-    const lines:string[] = preprocessing(rawLines)
+export const lines2tree = (rawLines: string[]): TreeType => {
+    const lines: string[] = preprocessing(rawLines)
     return process(lines)
 }
 
 /**
  * Returns a JSON tree based on ICS format
- * 
+ *
  * @param lines raw lines preprocessed for multi content lines
  * @param intend optional, used for debugging tree data
  */
-const process = (lines:string[], intend:number = 0):TreeType => {
-    const output:TreeType = {}
-    let componentName:ComponentType
+const process = (lines: string[], intend: number = 0): TreeType => {
+    const output: TreeType = {}
+    let componentName: ComponentType
 
-    for(let i=0;i<lines.length;i++){
+    for (let i = 0; i < lines.length; i++) {
         const line = lines[i]
         const index = line.indexOf(COLON)
 
         const key = line.substr(0, index)
         const value = line.substr(index + 1)
 
-        if(key === BEGIN){
+        if (key === BEGIN) {
             componentName = value as any
             const lastLine = [END, componentName].join(COLON)
             const lastIndex = lines.indexOf(lastLine, i)
 
             const newLines = lines.slice(i + 1, lastIndex)
 
-            if(newLines.length){
-                const tree = process(newLines, intend+1)
+            if (newLines.length) {
+                const tree = process(newLines, intend + 1)
 
-                if(!output[componentName])
+                if (!output[componentName])
                     output[componentName] = []
 
-                const array:TreeType[] = output[componentName] as any
+                const array: TreeType[] = output[componentName] as any
                 array.push(tree)
                 output[componentName] = array
 
                 i = lastIndex
             }
-        }else if(line && !line.startsWith(END)){
+        } else if (line && !line.startsWith(END)) {
             const kv = processKeyValue(key, value)
-            
-            if(kv){
+
+            if (kv) {
                 const k = kv.key
                 output[k] = kv
-            }else{
+            } else {
                 output[key] = value
             }
-            
+
         }
     }
 
@@ -187,17 +185,17 @@ const process = (lines:string[], intend:number = 0):TreeType => {
 }
 
 
-const processKeyValue = (key:string, value:string):KeyValue|null => {
-    if(key.includes(SEMICOLON)){
-        const keys = key.split(SEMICOLON)
-        const k = keys[0]
-        
-        let obj:KeyValue = {
-            key: k,
-            __value__: value
+const processKeyValue = (rawKey: string, rawValue: string): KeyValue | null => {
+    if (rawKey.includes(SEMICOLON)) {
+        const keys = rawKey.split(SEMICOLON)
+        const key = keys[0]
+
+        const obj: KeyValue = {
+            key,
+            __value__: rawValue
         }
 
-        for(let i=1;i<keys.length;i++){
+        for (let i = 1; i < keys.length; i++) {
             const kv = keys[i].split(EQUAL)
             const k = kv[0]
             const v = kv[1]
