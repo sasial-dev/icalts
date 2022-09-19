@@ -1,7 +1,6 @@
 import {
     COLON,
     EQUAL,
-    SPACE,
     SEMICOLON,
     NEW_LINE,
 
@@ -14,44 +13,6 @@ import {
     KeyValue,
     TreeType
 } from './types'
-
-/**
- * Parses content lines according to RFC5545 {@link https://tools.ietf.org/html/rfc5545#section-3.1}
- *
- * @remarks not exposed for external use
- *
- * @example input:
- *
- * ```
- * DESCRIPTION:This is a lo
- *    ng description
- *     that exists on a long line.
- * ```
- *
- * @example output:
- *
- * ```
- * DESCRIPTION:This is a long description that exists on a long line.
- * ```
- *
- * @param lines array of lines
- *
- * @returns arrays of lines with content lines merged into a single string for each occurance
- *
- */
-const preprocessing = (lines: string[]): string[] => {
-    const output: string[] = []
-
-    for (const line of lines) {
-        if (line.startsWith(SPACE)) {
-            output[output.length - 1] += line.trim()
-        } else if (line) {
-            output.push(line)
-        }
-    }
-
-    return output
-}
 
 /**
  * Returns JSON structure of processed ICS tree
@@ -132,8 +93,8 @@ export function parseString(rawLines: string): TreeType;
 export function parseString(rawLines: string[]): TreeType;
 export function parseString(rawLines: string | string[]): TreeType {
     if (!Array.isArray(rawLines)) rawLines = rawLines.split(NEW_LINE);
-    const lines: string[] = preprocessing(rawLines)
-    return process(lines)
+    rawLines = rawLines.map((line) => line.trim());
+    return process(rawLines)
 }
 
 /**
@@ -150,8 +111,8 @@ const process = (lines: string[], intend: number = 0): TreeType => {
         const line = lines[i]
         const index = line.indexOf(COLON)
 
-        const key = line.substr(0, index)
-        const value = line.substr(index + 1)
+        const key = line.substring(0, index)
+        const value = line.substring(index + 1)
 
         if (key === BEGIN) {
             componentName = value as any
