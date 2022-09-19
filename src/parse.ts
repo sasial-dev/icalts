@@ -128,9 +128,9 @@ const preprocessing = (lines: string[]): string[] => {
  *
  * @param rawLines input array of string from the ICS file
  */
-export function lines2tree(rawLines: string): TreeType;
-export function lines2tree(rawLines: string[]): TreeType;
-export function lines2tree(rawLines: string | string[]): TreeType {
+export function parseString(rawLines: string): TreeType;
+export function parseString(rawLines: string[]): TreeType;
+export function parseString(rawLines: string | string[]): TreeType {
     if (!Array.isArray(rawLines)) rawLines = rawLines.split(NEW_LINE);
     const lines: string[] = preprocessing(rawLines)
     return process(lines)
