@@ -1,158 +1,158 @@
 {
-  "VCALENDAR": [
+  "VCalendar": [
     {
-      "PRODID": "-//Google Inc//Google Calendar 70.9054//EN",
-      "VERSION": "2.0",
-      "CALSCALE": "GREGORIAN",
-      "X-WR-CALNAME": "Contacts' birthdays and events",
-      "X-WR-TIMEZONE": "America/Los_Angeles",
-      "X-WR-CALDESC": "Your contacts' birthdays and anniversaries",
-      "VEVENT": [
+      "prodid": "-//Google Inc//Google Calendar 70.9054//EN",
+      "version": "2.0",
+      "calscale": "GREGORIAN",
+      "wr-calname": "Contacts' birthdays and events",
+      "wr-timezone": "America/Los_Angeles",
+      "wr-caldesc": "Your contacts' birthdays and anniversaries",
+      "VEvent": [
         {
-          "DTSTART": {
-            "key": "DTSTART",
+          "dtstart": {
+            "key": "dtstart",
             "__value__": "20141210",
-            "VALUE": "DATE"
+            "value": "DATE"
           },
-          "DTEND": {
-            "key": "DTEND",
+          "dtend": {
+            "key": "dtend",
             "__value__": "20141211",
-            "VALUE": "DATE"
+            "value": "DATE"
           },
-          "RRULE": "FREQ=DAILY;INTERVAL=1;COUNT=1",
-          "RDATE": "20121210Z",
-          "DTSTAMP": "20121207T183041Z",
-          "UID": "2014_BIRTHDAY_79d389868f96182e@google.com",
-          "ATTENDEE": {
-            "key": "ATTENDEE",
+          "rrule": "FREQ=DAILY;INTERVAL=1;COUNT=1",
+          "rdate": "20121210Z",
+          "dtstamp": "20121207T183041Z",
+          "uid": "2014_BIRTHDAY_79d389868f96182e@google.com",
+          "attendee": {
+            "key": "attendee",
             "__value__": "mailto:4dhmurjkc5hn8sq0ctp6utbg5pr2sor1dhimsp31e8n6errfctm6abj3dtmg@virtual",
-            "CUTYPE": "INDIVIDUAL",
-            "ROLE": "REQ-PARTICIPANT",
-            "PARTSTAT": "ACCEPTED",
-            "CN": "Contacts",
-            "X-NUM-GUESTS": "0"
+            "cutype": "INDIVIDUAL",
+            "role": "REQ-PARTICIPANT",
+            "partstat": "ACCEPTED",
+            "cn": "Contacts",
+            "num-guests": "0"
           },
-          "CLASS": "PUBLIC",
-          "CREATED": "20121207T183041Z",
-          "LAST-MODIFIED": "20121207T183041Z",
-          "SEQUENCE": "1",
-          "STATUS": "CONFIRMED",
-          "SUMMARY": "PErson #2's birthday",
-          "TRANSP": "OPAQUE"
+          "class": "PUBLIC",
+          "created": "20121207T183041Z",
+          "last-modified": "20121207T183041Z",
+          "sequence": "1",
+          "status": "CONFIRMED",
+          "summary": "PErson #2's birthday",
+          "transp": "OPAQUE"
         },
         {
-          "DTSTART": {
-            "key": "DTSTART",
+          "dtstart": {
+            "key": "dtstart",
             "__value__": "20121210",
-            "VALUE": "DATE"
+            "value": "DATE"
           },
-          "DTEND": {
-            "key": "DTEND",
+          "dtend": {
+            "key": "dtend",
             "__value__": "20121211",
-            "VALUE": "DATE"
+            "value": "DATE"
           },
-          "DTSTAMP": "20121207T183041Z",
-          "UID": "BIRTHDAY_79d389868f96182e@google.com",
-          "ATTENDEE": {
-            "key": "ATTENDEE",
+          "dtstamp": "20121207T183041Z",
+          "uid": "BIRTHDAY_79d389868f96182e@google.com",
+          "attendee": {
+            "key": "attendee",
             "__value__": "mailto:4dhmurjkc5hn8sq0ctp6utbg5pr2sor1dhimsp31e8n6errfctm6abj3dtmg@virtual",
-            "CUTYPE": "INDIVIDUAL",
-            "ROLE": "REQ-PARTICIPANT",
-            "PARTSTAT": "ACCEPTED",
-            "CN": "Contacts",
-            "X-NUM-GUESTS": "0"
+            "cutype": "INDIVIDUAL",
+            "role": "REQ-PARTICIPANT",
+            "partstat": "ACCEPTED",
+            "cn": "Contacts",
+            "num-guests": "0"
           },
-          "X-GOOGLE-CALENDAR-CONTENT-ICON": "https://calendar.google.com/googlecalendar/images/cake.gif",
-          "X-GOOGLE-CALENDAR-CONTENT-DISPLAY": "chip",
-          "RECURRENCE-ID": {
-            "key": "RECURRENCE-ID",
+          "google-calendar-content-icon": "https://calendar.google.com/googlecalendar/images/cake.gif",
+          "google-calendar-content-display": "chip",
+          "recurrence-id": {
+            "key": "recurrence-id",
             "__value__": "20121210",
-            "VALUE": "DATE"
+            "value": "DATE"
           },
-          "CLASS": "PUBLIC",
-          "CREATED": "20121207T183041Z",
-          "DESCRIPTION": "Today is PErson #2's birthday!",
-          "LAST-MODIFIED": "20121207T183041Z",
-          "SEQUENCE": "1",
-          "STATUS": "CONFIRMED",
-          "SUMMARY": "PErson #2's birthday",
-          "TRANSP": "OPAQUE"
+          "class": "PUBLIC",
+          "created": "20121207T183041Z",
+          "description": "Today is PErson #2's birthday!",
+          "last-modified": "20121207T183041Z",
+          "sequence": "1",
+          "status": "CONFIRMED",
+          "summary": "PErson #2's birthday",
+          "transp": "OPAQUE"
         },
         {
-          "DTSTART": {
-            "key": "DTSTART",
+          "dtstart": {
+            "key": "dtstart",
             "__value__": "20131210",
-            "VALUE": "DATE"
+            "value": "DATE"
           },
-          "DTEND": {
-            "key": "DTEND",
+          "dtend": {
+            "key": "dtend",
             "__value__": "20131211",
-            "VALUE": "DATE"
+            "value": "DATE"
           },
-          "DTSTAMP": "20121207T183041Z",
-          "UID": "BIRTHDAY_79d389868f96182e@google.com",
-          "ATTENDEE": {
-            "key": "ATTENDEE",
+          "dtstamp": "20121207T183041Z",
+          "uid": "BIRTHDAY_79d389868f96182e@google.com",
+          "attendee": {
+            "key": "attendee",
             "__value__": "mailto:4dhmurjkc5hn8sq0ctp6utbg5pr2sor1dhimsp31e8n6errfctm6abj3dtmg@virtual",
-            "CUTYPE": "INDIVIDUAL",
-            "ROLE": "REQ-PARTICIPANT",
-            "PARTSTAT": "ACCEPTED",
-            "CN": "Contacts",
-            "X-NUM-GUESTS": "0"
+            "cutype": "INDIVIDUAL",
+            "role": "REQ-PARTICIPANT",
+            "partstat": "ACCEPTED",
+            "cn": "Contacts",
+            "num-guests": "0"
           },
-          "X-GOOGLE-CALENDAR-CONTENT-ICON": "https://calendar.google.com/googlecalendar/images/cake.gif",
-          "X-GOOGLE-CALENDAR-CONTENT-DISPLAY": "chip",
-          "RECURRENCE-ID": {
-            "key": "RECURRENCE-ID",
+          "google-calendar-content-icon": "https://calendar.google.com/googlecalendar/images/cake.gif",
+          "google-calendar-content-display": "chip",
+          "recurrence-id": {
+            "key": "recurrence-id",
             "__value__": "20131210",
-            "VALUE": "DATE"
+            "value": "DATE"
           },
-          "CLASS": "PUBLIC",
-          "CREATED": "20121207T183041Z",
-          "DESCRIPTION": "Today is PErson #2's birthday!",
-          "LAST-MODIFIED": "20121207T183041Z",
-          "SEQUENCE": "1",
-          "STATUS": "CONFIRMED",
-          "SUMMARY": "PErson #2's birthday",
-          "TRANSP": "OPAQUE"
+          "class": "PUBLIC",
+          "created": "20121207T183041Z",
+          "description": "Today is PErson #2's birthday!",
+          "last-modified": "20121207T183041Z",
+          "sequence": "1",
+          "status": "CONFIRMED",
+          "summary": "PErson #2's birthday",
+          "transp": "OPAQUE"
         },
         {
-          "DTSTART": {
-            "key": "DTSTART",
+          "dtstart": {
+            "key": "dtstart",
             "__value__": "20141210",
-            "VALUE": "DATE"
+            "value": "DATE"
           },
-          "DTEND": {
-            "key": "DTEND",
+          "dtend": {
+            "key": "dtend",
             "__value__": "20141211",
-            "VALUE": "DATE"
+            "value": "DATE"
           },
-          "DTSTAMP": "20121207T183041Z",
-          "UID": "BIRTHDAY_79d389868f96182e@google.com",
-          "ATTENDEE": {
-            "key": "ATTENDEE",
+          "dtstamp": "20121207T183041Z",
+          "uid": "BIRTHDAY_79d389868f96182e@google.com",
+          "attendee": {
+            "key": "attendee",
             "__value__": "mailto:4dhmurjkc5hn8sq0ctp6utbg5pr2sor1dhimsp31e8n6errfctm6abj3dtmg@virtual",
-            "CUTYPE": "INDIVIDUAL",
-            "ROLE": "REQ-PARTICIPANT",
-            "PARTSTAT": "ACCEPTED",
-            "CN": "Contacts",
-            "X-NUM-GUESTS": "0"
+            "cutype": "INDIVIDUAL",
+            "role": "REQ-PARTICIPANT",
+            "partstat": "ACCEPTED",
+            "cn": "Contacts",
+            "num-guests": "0"
           },
-          "X-GOOGLE-CALENDAR-CONTENT-ICON": "https://calendar.google.com/googlecalendar/images/cake.gif",
-          "X-GOOGLE-CALENDAR-CONTENT-DISPLAY": "chip",
-          "RECURRENCE-ID": {
-            "key": "RECURRENCE-ID",
+          "google-calendar-content-icon": "https://calendar.google.com/googlecalendar/images/cake.gif",
+          "google-calendar-content-display": "chip",
+          "recurrence-id": {
+            "key": "recurrence-id",
             "__value__": "20141210",
-            "VALUE": "DATE"
+            "value": "DATE"
           },
-          "CLASS": "PUBLIC",
-          "CREATED": "20121207T183041Z",
-          "DESCRIPTION": "Today is PErson #2's birthday!",
-          "LAST-MODIFIED": "20121207T183041Z",
-          "SEQUENCE": "1",
-          "STATUS": "CONFIRMED",
-          "SUMMARY": "PErson #2's birthday",
-          "TRANSP": "OPAQUE"
+          "class": "PUBLIC",
+          "created": "20121207T183041Z",
+          "description": "Today is PErson #2's birthday!",
+          "last-modified": "20121207T183041Z",
+          "sequence": "1",
+          "status": "CONFIRMED",
+          "summary": "PErson #2's birthday",
+          "transp": "OPAQUE"
         }
       ]
     }

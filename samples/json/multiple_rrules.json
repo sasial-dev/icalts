@@ -1,76 +1,76 @@
 {
-  "VCALENDAR": [
+  "VCalendar": [
     {
-      "VERSION": "2.0",
-      "PRODID": "Zimbra-Calendar-Provider",
-      "VTIMEZONE": [
+      "version": "2.0",
+      "prodid": "Zimbra-Calendar-Provider",
+      "VTimeZone": [
         {
-          "TZID": "America/Los_Angeles",
-          "STANDARD": [
+          "tzid": "America/Los_Angeles",
+          "standard": [
             {
-              "DTSTART": "19710101T020000",
-              "TZOFFSETTO": "-0800",
-              "TZOFFSETFROM": "-0700",
-              "RRULE": "FREQ=YEARLY;WKST=MO;INTERVAL=1;BYMONTH=11;BYDAY=1SU",
-              "TZNAME": "PST"
+              "dtstart": "19710101T020000",
+              "tzoffsetto": "-0800",
+              "tzoffsetfrom": "-0700",
+              "rrule": "FREQ=YEARLY;WKST=MO;INTERVAL=1;BYMONTH=11;BYDAY=1SU",
+              "tzname": "PST"
             }
           ],
-          "DAYLIGHT": [
+          "daylight": [
             {
-              "DTSTART": "19710101T020000",
-              "TZOFFSETTO": "-0700",
-              "TZOFFSETFROM": "-0800",
-              "RRULE": "FREQ=YEARLY;WKST=MO;INTERVAL=1;BYMONTH=3;BYDAY=2SU",
-              "TZNAME": "PDT"
+              "dtstart": "19710101T020000",
+              "tzoffsetto": "-0700",
+              "tzoffsetfrom": "-0800",
+              "rrule": "FREQ=YEARLY;WKST=MO;INTERVAL=1;BYMONTH=3;BYDAY=2SU",
+              "tzname": "PDT"
             }
           ]
         }
       ],
-      "VEVENT": [
+      "VEvent": [
         {
-          "UID": "1334F9B7-6136-444E-A58D-472564C6AA73",
-          "RRULE": "FREQ=MONTHLY;BYDAY=SU;UNTIL=20120730T065959Z",
-          "SUMMARY": "sahaja <> frashed",
-          "DESCRIPTION": "weekly 1on1",
-          "ATTENDEE": {
-            "key": "ATTENDEE",
+          "uid": "1334F9B7-6136-444E-A58D-472564C6AA73",
+          "rrule": "FREQ=MONTHLY;BYDAY=SU;UNTIL=20120730T065959Z",
+          "summary": "sahaja <> frashed",
+          "description": "weekly 1on1",
+          "attendee": {
+            "key": "attendee",
             "__value__": "mailto:jlal@mozilla.com",
-            "CN": "James Lal",
-            "CUTYPE": "INDIVIDUAL",
-            "ROLE": "REQ-PARTICIPANT",
-            "PARTSTAT": "NEEDS-ACTION",
-            "RSVP": "TRUE"
+            "cn": "James Lal",
+            "cutype": "INDIVIDUAL",
+            "role": "REQ-PARTICIPANT",
+            "partstat": "NEEDS-ACTION",
+            "rsvp": "TRUE"
           },
-          "ORGANIZER": {
-            "key": "ORGANIZER",
+          "organizer": {
+            "key": "organizer",
             "__value__": "mailto:frashed@mozilla.com",
-            "CN": "Faramarz Rashed"
+            "cn": "Faramarz Rashed"
           },
-          "DTSTART": {
-            "key": "DTSTART",
+          "dtstart": {
+            "key": "dtstart",
             "__value__": "20120326T110000",
-            "TZID": "America/Los_Angeles"
+            "tzid": "America/Los_Angeles"
           },
-          "DTEND": {
-            "key": "DTEND",
+          "dtend": {
+            "key": "dtend",
             "__value__": "20120326T113000",
-            "TZID": "America/Los_Angeles"
+            "tzid": "America/Los_Angeles"
           },
-          "STATUS": "CONFIRMED",
-          "CLASS": "PUBLIC",
-          "TRANSP": "OPAQUE",
-          "LAST-MODIFIED": "20120326T161522Z",
-          "DTSTAMP": "20120730T165637Z",
-          "SEQUENCE": "9",
-          "VALARM": [
+          "status": "CONFIRMED",
+          "class": "PUBLIC",
+          "transp": "OPAQUE",
+          "last-modified": "20120326T161522Z",
+          "dtstamp": "20120730T165637Z",
+          "sequence": "9",
+          "valarm": [
             {
-              "ACTION": "DISPLAY",
-              "TRIGGER": {
-                "key": "TRIGGER",
+              "action": "DISPLAY",
+              "trigger": {
+                "key": "trigger",
                 "__value__": "-PT5M",
-                "RELATED": "START"
+                "related": "START"
               },
-              "DESCRIPTION": "Reminder"
+              "description": "Reminder"
             }
           ]
         }

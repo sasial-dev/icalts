@@ -1,7 +1,7 @@
 {
-  "VCALENDAR": [
+  "VCalendar": [
     {
-      "COMMENT": "This blank line is invalid"
+      "comment": "This blank line is invalid"
     }
   ]
 }

@@ -1,57 +1,57 @@
 {
-  "VCALENDAR": [
+  "VCalendar": [
     {
-      "PRODID": "-//Google Inc//Google Calendar 70.9054//EN",
-      "VERSION": "2.0",
-      "CALSCALE": "GREGORIAN",
-      "X-WR-CALNAME": "calmozilla1@gmail.com",
-      "X-WR-TIMEZONE": "America/Los_Angeles",
-      "VTIMEZONE": [
+      "prodid": "-//Google Inc//Google Calendar 70.9054//EN",
+      "version": "2.0",
+      "calscale": "GREGORIAN",
+      "wr-calname": "calmozilla1@gmail.com",
+      "wr-timezone": "America/Los_Angeles",
+      "VTimeZone": [
         {
-          "TZID": "America/Los_Angeles",
-          "X-LIC-LOCATION": "America/Los_Angeles",
-          "DAYLIGHT": [
+          "tzid": "America/Los_Angeles",
+          "lic-location": "America/Los_Angeles",
+          "daylight": [
             {
-              "TZOFFSETFROM": "-0800",
-              "TZOFFSETTO": "-0700",
-              "TZNAME": "PDT",
-              "DTSTART": "19700308T020000",
-              "RRULE": "FREQ=YEARLY;BYMONTH=3;BYDAY=2SU"
+              "tzoffsetfrom": "-0800",
+              "tzoffsetto": "-0700",
+              "tzname": "PDT",
+              "dtstart": "19700308T020000",
+              "rrule": "FREQ=YEARLY;BYMONTH=3;BYDAY=2SU"
             }
           ],
-          "STANDARD": [
+          "standard": [
             {
-              "TZOFFSETFROM": "-0700",
-              "TZOFFSETTO": "-0800",
-              "TZNAME": "PST",
-              "DTSTART": "19701101T020000",
-              "RRULE": "FREQ=YEARLY;BYMONTH=11;BYDAY=1SU"
+              "tzoffsetfrom": "-0700",
+              "tzoffsetto": "-0800",
+              "tzname": "PST",
+              "dtstart": "19701101T020000",
+              "rrule": "FREQ=YEARLY;BYMONTH=11;BYDAY=1SU"
             }
           ]
         }
       ],
-      "VEVENT": [
+      "VEvent": [
         {
-          "DTSTART": {
-            "key": "DTSTART",
+          "dtstart": {
+            "key": "dtstart",
             "__value__": "20120630T060000",
-            "TZID": "America/Los_Angeles"
+            "tzid": "America/Los_Angeles"
           },
-          "DTEND": {
-            "key": "DTEND",
+          "dtend": {
+            "key": "dtend",
             "__value__": "20120630T070000",
-            "TZID": "America/Los_Angeles"
+            "tzid": "America/Los_Angeles"
           },
-          "DTSTAMP": "20120724T212411Z",
-          "UID": "dn4vrfmfn5p05roahsopg57h48@google.com",
-          "CREATED": "20120724T212411Z",
-          "DESCRIPTION": "",
-          "LAST-MODIFIED": "20120724T212411Z",
-          "LOCATION": "",
-          "SEQUENCE": "0",
-          "STATUS": "CONFIRMED",
-          "SUMMARY": "Really long event name thing",
-          "TRANSP": "OPAQUE"
+          "dtstamp": "20120724T212411Z",
+          "uid": "dn4vrfmfn5p05roahsopg57h48@google.com",
+          "created": "20120724T212411Z",
+          "description": "",
+          "last-modified": "20120724T212411Z",
+          "location": "",
+          "sequence": "0",
+          "status": "CONFIRMED",
+          "summary": "Really long event name thing",
+          "transp": "OPAQUE"
         }
       ]
     }

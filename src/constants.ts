@@ -6,10 +6,11 @@ export const EQUAL = '='
 
 export const BEGIN = 'BEGIN'
 export const END = 'END'
+export const CUSTOM_PROPERTY = /X-[\w-]+/
 
 export const VCALENDAR = 'VCALENDAR'
 export const VTIMEZONE = 'VTIMEZONE'
 export const VEVENT = 'VEVENT'
 export const VALARM = 'VALARM'
 
-export type ComponentType = 'VCALENDAR' | 'VTIMEZONE' | 'VEVENT' | 'VALARM'
+export const HIGH_LEVEL_COMPONENTS = {VCALENDAR: "VCalendar", VTIMEZONE: "VTimeZone", VEVENT: "VEvent"} as const;

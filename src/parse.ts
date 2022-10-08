@@ -7,12 +7,14 @@ import {
 
     BEGIN,
     END,
+    CUSTOM_PROPERTY,
 
-    ComponentType
+    HIGH_LEVEL_COMPONENTS
 } from './constants'
-import { 
-    KeyValue, 
-    TreeType 
+import {
+    CalendarComponent,
+    CalendarResponse,
+    PropertyWithArgs
 } from './types'
 
 /**
@@ -130,10 +132,10 @@ const preprocessing = (lines:string[]):string[] => {
  * 
  * @param rawLines input array of string from the ICS file
  */
-export const parseString = (rawLines: string | string[]):TreeType => {
+export function parseString(rawLines: string | string[]): CalendarResponse {
     if (!Array.isArray(rawLines)) rawLines = rawLines.split(NEW_LINE);
     const lines:string[] = preprocessing(rawLines)
-    return process(lines)
+    return process(lines) as CalendarResponse;
 }
 
 /**
@@ -142,33 +144,32 @@ export const parseString = (rawLines: string | string[]):TreeType => {
  * @param lines raw lines preprocessed for multi content lines
  * @param intend optional, used for debugging tree data
  */
-const process = (lines:string[], intend:number = 0):TreeType => {
-    const output:TreeType = {}
-    let componentName:ComponentType
+const process = (lines: string[], intend: number = 0): CalendarComponent => {
+    const output: CalendarComponent = {}
+    let componentName: string
 
     for(let i=0;i<lines.length;i++){
         const line = lines[i]
         const index = line.indexOf(COLON)
 
-        const key = line.substr(0, index)
-        const value = line.substr(index + 1)
+        const key = line.substring(0, index)
+        const value = line.substring(index + 1)
 
         if(key === BEGIN){
-            componentName = value as any
-            const lastLine = [END, componentName].join(COLON)
+            componentName = sanitiseKey(value)
+
+            const lastLine = [END, value].join(COLON)
             const lastIndex = lines.indexOf(lastLine, i)
 
             const newLines = lines.slice(i + 1, lastIndex)
 
-            if(newLines.length){
-                const tree = process(newLines, intend+1)
+            if (newLines.length) {
+                const tree = process(newLines, intend + 1)
 
-                if(!output[componentName])
-                    output[componentName] = []
-
-                const array:TreeType[] = output[componentName] as any
-                array.push(tree)
-                output[componentName] = array
+                // TODO: write a better way than any :(
+                const array = (output as any)[componentName] ?? []
+                array.push(tree);
+                (output as any)[componentName] = array;
 
                 i = lastIndex
             }
@@ -176,10 +177,11 @@ const process = (lines:string[], intend:number = 0):TreeType => {
             const kv = processKeyValue(key, value)
             
             if(kv){
-                const k = kv.key
-                output[k] = kv
+                const k = kv.key;
+                (output as any)[k] = kv
             }else{
-                output[key] = value
+                componentName = sanitiseKey(key);
+                (output as any)[componentName] = value
             }
             
         }
@@ -188,20 +190,26 @@ const process = (lines:string[], intend:number = 0):TreeType => {
     return output
 }
 
+const sanitiseKey = (key: string): string => {
+    if (key in HIGH_LEVEL_COMPONENTS) return HIGH_LEVEL_COMPONENTS[key as keyof typeof HIGH_LEVEL_COMPONENTS];
+    if (CUSTOM_PROPERTY.test(key)) key = key.slice(2);
+    key = key.toLowerCase();
+    return key
+}
 
-const processKeyValue = (key:string, value:string):KeyValue|null => {
-    if(key.includes(SEMICOLON)){
-        const keys = key.split(SEMICOLON)
-        const k = keys[0]
-        
-        let obj:KeyValue = {
-            key: k,
-            __value__: value
+const processKeyValue = (rawKey: string, rawValue: string): PropertyWithArgs<string> | null => {
+    if (rawKey.includes(SEMICOLON)) {
+        const keys = rawKey.split(SEMICOLON)
+        const key = sanitiseKey(keys[0])
+
+        const obj: PropertyWithArgs<string> = {
+            key,
+            __value__: rawValue
         }
 
         for(let i=1;i<keys.length;i++){
             const kv = keys[i].split(EQUAL)
-            const k = kv[0]
+            const k = sanitiseKey(kv[0]);
             const v = kv[1]
             obj[k] = v
         }

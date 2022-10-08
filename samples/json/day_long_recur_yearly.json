@@ -1,77 +1,77 @@
 {
-  "VCALENDAR": [
+  "VCalendar": [
     {
-      "PRODID": "-//Google Inc//Google Calendar 70.9054//EN",
-      "VERSION": "2.0",
-      "CALSCALE": "GREGORIAN",
-      "X-WR-CALNAME": "calmozilla1@gmail.com",
-      "X-WR-TIMEZONE": "America/Los_Angeles",
-      "VTIMEZONE": [
+      "prodid": "-//Google Inc//Google Calendar 70.9054//EN",
+      "version": "2.0",
+      "calscale": "GREGORIAN",
+      "wr-calname": "calmozilla1@gmail.com",
+      "wr-timezone": "America/Los_Angeles",
+      "VTimeZone": [
         {
-          "TZID": "America/Los_Angeles",
-          "X-LIC-LOCATION": "America/Los_Angeles",
-          "DAYLIGHT": [
+          "tzid": "America/Los_Angeles",
+          "lic-location": "America/Los_Angeles",
+          "daylight": [
             {
-              "TZOFFSETFROM": "-0800",
-              "TZOFFSETTO": "-0700",
-              "TZNAME": "PDT",
-              "DTSTART": "19700308T020000",
-              "RRULE": "FREQ=YEARLY;BYMONTH=3;BYDAY=2SU"
+              "tzoffsetfrom": "-0800",
+              "tzoffsetto": "-0700",
+              "tzname": "PDT",
+              "dtstart": "19700308T020000",
+              "rrule": "FREQ=YEARLY;BYMONTH=3;BYDAY=2SU"
             }
           ],
-          "STANDARD": [
+          "standard": [
             {
-              "TZOFFSETFROM": "-0700",
-              "TZOFFSETTO": "-0800",
-              "TZNAME": "PST",
-              "DTSTART": "19701101T020000",
-              "RRULE": "FREQ=YEARLY;BYMONTH=11;BYDAY=1SU"
+              "tzoffsetfrom": "-0700",
+              "tzoffsetto": "-0800",
+              "tzname": "PST",
+              "dtstart": "19701101T020000",
+              "rrule": "FREQ=YEARLY;BYMONTH=11;BYDAY=1SU"
             }
           ]
         }
       ],
-      "VEVENT": [
+      "VEvent": [
         {
-          "DTSTART": {
-            "key": "DTSTART",
+          "dtstart": {
+            "key": "dtstart",
             "__value__": "20120803",
-            "VALUE": "DATE"
+            "value": "DATE"
           },
-          "DTEND": {
-            "key": "DTEND",
+          "dtend": {
+            "key": "dtend",
             "__value__": "20120804",
-            "VALUE": "DATE"
+            "value": "DATE"
           },
-          "RRULE": "FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR",
-          "DTSTAMP": "20120803T221306Z",
-          "UID": "4pfh824gvims850j0gar361t04@google.com",
-          "CREATED": "20120803T221306Z",
-          "DESCRIPTION": "",
-          "LAST-MODIFIED": "20120803T221306Z",
-          "LOCATION": "",
-          "SEQUENCE": "0",
-          "STATUS": "CONFIRMED",
-          "SUMMARY": "Day Long Event",
-          "TRANSP": "TRANSPARENT",
-          "VALARM": [
+          "rrule": "FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR",
+          "dtstamp": "20120803T221306Z",
+          "uid": "4pfh824gvims850j0gar361t04@google.com",
+          "created": "20120803T221306Z",
+          "description": "",
+          "last-modified": "20120803T221306Z",
+          "location": "",
+          "sequence": "0",
+          "status": "CONFIRMED",
+          "summary": "Day Long Event",
+          "transp": "TRANSPARENT",
+          "valarm": [
             {
-              "ACTION": "EMAIL",
-              "DESCRIPTION": "This is an event reminder",
-              "SUMMARY": "Alarm notification",
-              "ATTENDEE": "mailto:calmozilla1@gmail.com",
-              "TRIGGER": {
-                "key": "TRIGGER",
+              "action": "EMAIL",
+              "description": "This is an event reminder",
+              "summary": "Alarm notification",
+              "attendee": "mailto:calmozilla1@gmail.com",
+              "trigger": {
+                "key": "trigger",
                 "__value__": "20120802T233000Z",
-                "VALUE": "DATE-TIME"
+                "value": "DATE-TIME"
               }
             },
             {
-              "ACTION": "DISPLAY",
-              "DESCRIPTION": "This is an event reminder",
-              "TRIGGER": {
-                "key": "TRIGGER",
+              "action": "DISPLAY",
+              "description": "This is an event reminder",
+              "trigger": {
+                "key": "trigger",
                 "__value__": "20120802T233000Z",
-                "VALUE": "DATE-TIME"
+                "value": "DATE-TIME"
               }
             }
           ]

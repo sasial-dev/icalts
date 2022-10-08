@@ -1,82 +1,82 @@
 {
-  "VCALENDAR": [
+  "VCalendar": [
     {
-      "VERSION": "2.0",
-      "PRODID": "Zimbra-Calendar-Provider",
-      "VTIMEZONE": [
+      "version": "2.0",
+      "prodid": "Zimbra-Calendar-Provider",
+      "VTimeZone": [
         {
-          "TZID": "America/Los_Angeles",
-          "STANDARD": [
+          "tzid": "America/Los_Angeles",
+          "standard": [
             {
-              "DTSTART": "19710101T020000",
-              "TZOFFSETTO": "-0800",
-              "TZOFFSETFROM": "-0700",
-              "RRULE": "FREQ=YEARLY;WKST=MO;INTERVAL=1;BYMONTH=11;BYDAY=1SU",
-              "TZNAME": "PST"
+              "dtstart": "19710101T020000",
+              "tzoffsetto": "-0800",
+              "tzoffsetfrom": "-0700",
+              "rrule": "FREQ=YEARLY;WKST=MO;INTERVAL=1;BYMONTH=11;BYDAY=1SU",
+              "tzname": "PST"
             }
           ],
-          "DAYLIGHT": [
+          "daylight": [
             {
-              "DTSTART": "19710101T020000",
-              "TZOFFSETTO": "-0700",
-              "TZOFFSETFROM": "-0800",
-              "RRULE": "FREQ=YEARLY;WKST=MO;INTERVAL=1;BYMONTH=3;BYDAY=2SU",
-              "TZNAME": "PDT"
+              "dtstart": "19710101T020000",
+              "tzoffsetto": "-0700",
+              "tzoffsetfrom": "-0800",
+              "rrule": "FREQ=YEARLY;WKST=MO;INTERVAL=1;BYMONTH=3;BYDAY=2SU",
+              "tzname": "PDT"
             }
           ]
         }
       ],
-      "VEVENT": [
+      "VEvent": [
         {
-          "UID": "623c13c0-6c2b-45d6-a12b-c33ad61c4868",
-          "DESCRIPTION": "IAM FOO",
-          "RRULE": "FREQ=MONTHLY;INTERVAL=1;BYDAY=1TU;UNTIL=20121231T100000",
-          "SUMMARY": "Crazy Event Thingy!",
-          "ATTENDEE": {
-            "key": "ATTENDEE",
+          "uid": "623c13c0-6c2b-45d6-a12b-c33ad61c4868",
+          "description": "IAM FOO",
+          "rrule": "FREQ=MONTHLY;INTERVAL=1;BYDAY=1TU;UNTIL=20121231T100000",
+          "summary": "Crazy Event Thingy!",
+          "attendee": {
+            "key": "attendee",
             "__value__": "mailto:iam.revelation@gmail.com",
-            "CUTYPE": "INDIVIDUAL",
-            "ROLE": "REQ-PARTICIPANT",
-            "PARTSTAT": "NEEDS-ACTION",
-            "CN": "iam.revelation@gmail.com",
-            "X-NUM-GUESTS": "0"
+            "cutype": "INDIVIDUAL",
+            "role": "REQ-PARTICIPANT",
+            "partstat": "NEEDS-ACTION",
+            "cn": "iam.revelation@gmail.com",
+            "num-guests": "0"
           },
-          "LOCATION": "PLACE",
-          "ORGANIZER": {
-            "key": "ORGANIZER",
+          "location": "PLACE",
+          "organizer": {
+            "key": "organizer",
             "__value__": "mailto:jlal@mozilla.com",
-            "CN": "James Lal"
+            "cn": "James Lal"
           },
-          "DTSTART": {
-            "key": "DTSTART",
+          "dtstart": {
+            "key": "dtstart",
             "__value__": "20121002T100000",
-            "TZID": "America/Los_Angeles"
+            "tzid": "America/Los_Angeles"
           },
-          "DTEND": {
-            "key": "DTEND",
+          "dtend": {
+            "key": "dtend",
             "__value__": "20121002T103000",
-            "TZID": "America/Los_Angeles"
+            "tzid": "America/Los_Angeles"
           },
-          "STATUS": "CONFIRMED",
-          "CLASS": "PUBLIC",
-          "TRANSP": "OPAQUE",
-          "LAST-MODIFIED": "20120912T171506Z",
-          "DTSTAMP": "20120912T171506Z",
-          "SEQUENCE": "0",
-          "RDATE": {
-            "key": "RDATE",
+          "status": "CONFIRMED",
+          "class": "PUBLIC",
+          "transp": "OPAQUE",
+          "last-modified": "20120912T171506Z",
+          "dtstamp": "20120912T171506Z",
+          "sequence": "0",
+          "rdate": {
+            "key": "rdate",
             "__value__": "20121105T100000",
-            "TZID": "America/Los_Angeles"
+            "tzid": "America/Los_Angeles"
           },
-          "VALARM": [
+          "valarm": [
             {
-              "ACTION": "DISPLAY",
-              "TRIGGER": {
-                "key": "TRIGGER",
+              "action": "DISPLAY",
+              "trigger": {
+                "key": "trigger",
                 "__value__": "-PT5M",
-                "RELATED": "START"
+                "related": "START"
               },
-              "DESCRIPTION": "Reminder"
+              "description": "Reminder"
             }
           ]
         }

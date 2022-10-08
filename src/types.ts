@@ -1,41 +1,32 @@
-export type KeyValue = {
-    key:string;
-    __value__:any;
-    [key:string]:string;
-}
-
-export type TreeType = {
-    [key:string]: TreeType[] | TreeType | string
-}
-
 // Adapted from https://github.com/jens-maus/node-ical/blob/master/node-ical.d.ts
 //  Licensed under the Apache License, Version 2.0 (the "License");
 //  you may not use this file except in compliance with the License.
 //  You may obtain a copy of the License at
 //  http://www.apache.org/licenses/LICENSE-2.0
 
-export type CalendarResponse = Record<CalendarComponentTypes, CalendarComponent>;
+export interface CalendarResponse extends VCalendar {
+    VEvent?: VEvent[];
+    VTimeZone?: VTimeZone[];
+}
 
-export type CalendarComponent = VTimeZone | VEvent | VCalendar;
-export type CalendarComponentTypes = "VTimeZone" | "VEvent" | "VCalendar" | string
+export type CalendarComponent = VCalendar | VTimeZone | VEvent;
+export type CalendarComponentTypes = "VCalendar" | "VTimeZone" | "VEvent"
 
 export type VTimeZone = TimeZoneProps & TimeZoneDictionary;
 
-interface TimeZoneProps extends BaseComponent {
-    type: 'VTIMEZONE';
+interface TimeZoneProps {
     tzid: string;
     tzurl: string;
 }
 
 type TimeZoneDictionary = Record<string, TimeZoneDef | undefined>;
 
-export interface VEvent extends BaseComponent {
-    type: 'VEVENT';
+export interface VEvent {
     method?: Method;
     dtstamp?: string;
-    uid?: string;
+    uid: string;
     sequence?: string;
-    transparency?: Transparency;
+    transp?: Transparency;
     class?: Class;
     summary?: string;
     start: string;
@@ -49,26 +40,19 @@ export interface VEvent extends BaseComponent {
     lastmodified?: string;
     rrule?: string; // rrule.rrule
     attendee?: Attendee[] | Attendee;
-    /* eslint-disable-next-line @typescript-eslint/ban-types */
-    recurrences?: Record<string, Omit<VEvent, 'recurrences'>>;
     status?: VEventStatus;
 }
 
 /**
  * Contains alls metadata of the Calendar
  */
-export interface VCalendar extends BaseComponent {
-    type: 'VCALENDAR';
+export interface VCalendar {
     prodid?: string;
     version?: string;
     calscale?: 'GREGORIAN' | string;
     method?: Method;
     'WR-CALNAME'?: string;
     'WR-TIMEZONE'?: string;
-}
-
-export interface BaseComponent {
-    params: any[];
 }
 
 export interface TimeZoneDef {
@@ -83,11 +67,13 @@ export interface TimeZoneDef {
     rdate: string | string[];
 }
 
-type Property<A> = PropertyWithArgs<A> | string;
+export type Property<A> = PropertyWithArgs<A> | string;
 
-interface PropertyWithArgs<A> {
-    val: string;
-    params: A & Record<string, unknown>;
+export type PropertyWithArgs<A> = {
+    key: string;
+    __value__: A;
+} & {
+    [key: string]: string;
 }
 
 export type Organizer = Property<{
