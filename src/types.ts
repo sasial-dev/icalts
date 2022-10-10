@@ -4,9 +4,11 @@
 //  You may obtain a copy of the License at
 //  http://www.apache.org/licenses/LICENSE-2.0
 
-export interface CalendarResponse extends VCalendar {
-    VEvent?: VEvent[];
-    VTimeZone?: VTimeZone[];
+export interface CalendarResponse {
+    VCalendar: (VCalendar & {
+        VEvent?: VEvent[];
+        VTimeZone?: VTimeZone[];
+    })[]
 }
 
 export type CalendarComponent = VCalendar | VTimeZone | VEvent;
@@ -22,6 +24,7 @@ interface TimeZoneProps {
 type TimeZoneDictionary = Record<string, TimeZoneDef | undefined>;
 
 export interface VEvent {
+    categories: string;
     method?: Method;
     dtstamp?: string;
     uid: string;
@@ -29,9 +32,10 @@ export interface VEvent {
     transp?: Transparency;
     class?: Class;
     summary?: string;
-    start: string;
+    dtstart: string;
     datetype?: DateType;
-    end: string;
+    dtend: string;
+    "last-modified"?: string
     location?: string;
     description?: string;
     url?: string;
