@@ -2,6 +2,7 @@ import {
     COLON,
     EQUAL,
     SPACE,
+    COMMA,
     SEMICOLON,
     NEW_LINE,
 
@@ -176,12 +177,11 @@ const process = (lines: string[], intend: number = 0): CalendarComponent => {
         }else if(line && !line.startsWith(END)){
             const kv = processKeyValue(key, value)
             
-            if(kv){
+            if(!Array.isArray(kv)){
                 const k = kv.key;
                 (output as any)[k] = kv
             }else{
-                componentName = sanitiseKey(key);
-                (output as any)[componentName] = value
+                (output as any)[kv[0]] = kv[1]
             }
             
         }
@@ -197,7 +197,8 @@ const sanitiseKey = (key: string): string => {
     return key
 }
 
-const processKeyValue = (rawKey: string, rawValue: string): PropertyWithArgs<string> | null => {
+// TODO: Consider a better option. Tuples may not be the best option here...
+const processKeyValue = (rawKey: string, rawValue: string): PropertyWithArgs<string> | [string, string | string[]] => {
     if (rawKey.includes(SEMICOLON)) {
         const keys = rawKey.split(SEMICOLON)
         const key = sanitiseKey(keys[0])
@@ -215,7 +216,13 @@ const processKeyValue = (rawKey: string, rawValue: string): PropertyWithArgs<str
         }
 
         return obj
+    } else if (["RRULE"].includes(rawKey)) {
+        // skip parsing some fields' values ^
+        return [sanitiseKey(rawKey), rawValue]
+    } else if (rawValue.includes(COMMA)) {
+        const values = rawValue.split(COMMA)
+        return [sanitiseKey(rawKey), values]   
     }
 
-    return null
+    return [sanitiseKey(rawKey), rawValue]
 }

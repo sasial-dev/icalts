@@ -24,7 +24,7 @@ interface TimeZoneProps {
 type TimeZoneDictionary = Record<string, TimeZoneDef | undefined>;
 
 export interface VEvent {
-    categories: string;
+    categories: string | string[];
     method?: Method;
     dtstamp?: string;
     uid: string;

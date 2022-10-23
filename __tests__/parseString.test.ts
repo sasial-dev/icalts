@@ -4,6 +4,7 @@ import { parseString } from '../src/parse'
 
 describe("parseString - transform file to a json tree", () => {
     const filenames = [
+        'array',
         'blank_description',
         'blank_line_end',
         'blank_line_mid',
